@@ -1,0 +1,581 @@
+:root {
+  /* Breakpoint variables */
+  --bp-small: 28.75;
+  --bp-medium: 48;
+  --bp-large: 64;
+  --bp-xlarge: 75;
+
+  /* initial values ital */
+  --text-wght: 400;
+  --text-ital: 0;
+
+  /* Type scale */
+  --type-scale: 1;
+  --base-font-size: 1; /* 1em */
+
+  /* Font size steps */
+  --p-font-size-step: 0.32;
+  --p-small-font-size-step: 0.24;
+  --h1-font-size-step: 1.2;
+  --h2-font-size-step: 0.8;
+  --h3-font-size-step: 0.64;
+  --h4-font-size-step: 0.48;
+  --h5-font-size-step: 0.32;
+  --h6-font-size-step: 0.16;
+  --bq-font-size-step: 0.24;
+
+  /* Line heights min/max */
+  --line-height-min-s: calc(var(--type-scale) * 1.04);
+  --line-height-max-s: calc(var(--line-height-min) + 0.08);
+  --line-height-min-m: calc(var(--type-scale) * 1.08);
+  --line-height-max-m: calc(var(--line-height-min-l) + 0.08);
+  --line-height-min-l: calc(var(--type-scale) * 1.4);
+  --line-height-max-l: calc(var(--line-height-min-l) + 0.08);
+  --line-height-min: var(--line-height-min-s);
+  --line-height-max: var(--line-height-max-s);
+
+  /* Paragraph variables */
+  --p-line-height-min: var(--line-height-min-l);
+  --p-line-height-max: var(--line-height-max-l);
+  --p-font-size-min: calc(var(--base-font-size) * 0.98);
+  --p-font-size-max: calc(var(--p-font-size-min) + var(--p-font-size-step));
+  --p-vf-wght: var(--text-wght);
+  --p-small-font-size-min: 0.88;
+  --p-small-font-size-max: 1.06;
+
+  /* Font sizes */
+  --h6-font-size-min: calc(var(--base-font-size));
+  --h5-font-size-min: calc(var(--base-font-size));
+  --h4-font-size-min: calc(var(--base-font-size));
+  --h3-font-size-min: calc(var(--type-scale) * var(--h4-font-size-min));
+  --h2-font-size-min: calc(var(--type-scale) * var(--h3-font-size-min));
+  --h1-font-size-min: calc(var(--type-scale) * var(--h2-font-size-min));
+
+  --h6-font-size-max: calc(var(--h6-font-size-min) + var(--h6-font-size-step));
+  --h5-font-size-max: calc(var(--h5-font-size-min) + var(--h5-font-size-step));
+  --h4-font-size-max: calc(var(--h4-font-size-min) + var(--h4-font-size-step));
+  --h3-font-size-max: calc(var(--h3-font-size-min) + var(--h3-font-size-step));
+  --h2-font-size-max: calc(var(--h2-font-size-min) + var(--h2-font-size-step));
+  --h1-font-size-max: calc(var(--h1-font-size-min) + var(--h1-font-size-step));
+
+  /* Font weights */
+  --vf-wght-step: 0.34;
+  --h1-vf-wght-base: 1.32;
+  --h2-vf-wght-base: 1.28;
+  --h3-vf-wght-base: 0.98;
+  --h4-vf-wght-base: 0.8;
+  --h5-vf-wght-base: 0.64;
+  --h6-vf-wght-base: 0.48;
+
+  --h1-vf-wght-multiplier-s: var(--h1-vf-wght-base);
+  --h1-vf-wght-multiplier-m: calc(
+    var(--h1-vf-wght-multiplier-s) + var(--vf-wght-step)
+  );
+  --h1-vf-wght-multiplier-l: calc(
+    var(--h1-vf-wght-multiplier-m) + var(--vf-wght-step)
+  );
+
+  --h2-vf-wght-multiplier-s: var(--h2-vf-wght-base);
+  --h2-vf-wght-multiplier-m: calc(
+    var(--h2-vf-wght-multiplier-s) + var(--vf-wght-step)
+  );
+  --h2-vf-wght-multiplier-l: calc(
+    var(--h2-vf-wght-multiplier-m) + var(--vf-wght-step)
+  );
+  --h3-vf-wght-multiplier-s: var(--h3-vf-wght-base);
+  --h3-vf-wght-multiplier-m: calc(
+    var(--h3-vf-wght-multiplier-s) + var(--vf-wght-step)
+  );
+  --h3-vf-wght-multiplier-l: calc(
+    var(--h3-vf-wght-multiplier-m) + var(--vf-wght-step)
+  );
+  --h4-vf-wght-multiplier-s: var(--h4-vf-wght-base);
+  --h4-vf-wght-multiplier-m: calc(
+    var(--h4-vf-wght-multiplier-s) + var(--vf-wght-step)
+  );
+  --h4-vf-wght-multiplier-l: calc(
+    var(--h4-vf-wght-multiplier-m) + var(--vf-wght-step)
+  );
+  --h5-vf-wght-multiplier-s: var(--h5-vf-wght-base);
+  --h5-vf-wght-multiplier-m: calc(
+    var(--h5-vf-wght-multiplier-s) + var(--vf-wght-step)
+  );
+  --h5-vf-wght-multiplier-l: calc(
+    var(--h5-vf-wght-multiplier-m) + var(--vf-wght-step)
+  );
+  --h6-vf-wght-multiplier-s: var(--h6-vf-wght-base);
+  --h6-vf-wght-multiplier-m: calc(
+    var(--h6-vf-wght-multiplier-s) + var(--vf-wght-step)
+  );
+  --h6-vf-wght-multiplier-l: calc(
+    var(--h6-vf-wght-multiplier-m) + var(--vf-wght-step)
+  );
+
+  /* Blockquote variables */
+  --bq-line-height-min: calc(var(--line-height-min) + 0.24);
+  --bq-line-height-max: calc(var(--line-height-max) + 0.24);
+  --bq-font-size-min: calc(var(--p-font-size-min) + 0.16);
+  --bq-font-size-max: calc(var(--bq-font-size-min) + var(--bq-font-size-step));
+}
+
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', serif;
+  font-size: 100%;
+}
+
+/*
+  * For more information visit: https://tbrown.org/notes/2012/02/03/molten-leading-or-fluid-line-height/
+  * The formula is to get the line-height is:
+    min-line-height + (max-line-height - min-line-height) × (current-width - min-width) / (max-width - min-width)
+  * The formula is to get the font-size is:
+    min-font-size + (max-font-size - min-font-size) × (current-width - min-width) / (max-width - min-width)
+*/
+
+@supports not (font-variation-settings: normal) {
+  body,
+  div,
+  p,
+  th,
+  td,
+  ul,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  figcaption,
+  cite,
+  i,
+  em,
+  b,
+  strong,
+  button,
+  input,
+  textarea,
+  select,
+  small {
+    font-style: normal;
+    font-weight: normal;
+  }
+}
+
+@supports (font-variation-settings: normal) {
+  body,
+  div,
+  blockquote,
+  p,
+  th,
+  td,
+  ul,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  figcaption,
+  cite,
+  i,
+  em,
+  b,
+  strong,
+  button,
+  input,
+  textarea,
+  select,
+  small {
+    font-variation-settings: 'wght' var(--text-wght), 'slnt' var(--text-ital);
+  }
+}
+
+blockquote {
+  margin: 0;
+}
+
+p,
+ul,
+ol {
+  --text-ital: 0;
+
+  margin-bottom: calc(var(--p-line-height-min) * 1em);
+}
+
+b,
+strong {
+  --text-wght: 700;
+}
+
+i,
+em {
+  --text-ital: -6;
+}
+
+b,
+strong,
+blockquote p {
+  font-weight: var(--text-wght);
+}
+
+/* Variations and variables */
+p,
+li,
+input,
+textarea,
+select,
+button,
+pre {
+  font-size: calc(var(--p-font-size-min) * 1rem);
+  line-height: var(--p-line-height-min);
+}
+
+code {
+  --code-font-size: calc(var(--p-font-size-min) * 0.84rem);
+  font-size: var(--code-font-size);
+}
+
+p small,
+small {
+  font-size: calc(var(--p-small-font-size-min) * 1rem);
+}
+
+/* Generic header styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  --text-wght: calc(var(--p-vf-wght) * var(--h1-vf-wght-multiplier-s));
+
+  font-weight: var(--text-wght);
+  line-height: var(--line-height-min);
+  margin-bottom: calc(var(--line-height-min) * 1em);
+}
+
+h1 {
+  --text-wght: calc(var(--p-vf-wght) * var(--h1-vf-wght-multiplier-s));
+  --text-ital: 0;
+  --h1-font-size: calc(var(--h1-font-size-min) * 1em);
+
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  --text-wght: calc(var(--p-vf-wght) * var(--h2-vf-wght-multiplier-s));
+  --text-ital: 0;
+  --h2-font-size: calc(var(--h2-font-size-min) * 1em);
+
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  --text-wght: calc(var(--p-vf-wght) * var(--h3-vf-wght-multiplier-s));
+  --text-ital: 0;
+  --h3-font-size: calc(var(--h3-font-size-min) * 1em);
+
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  --text-wght: calc(var(--p-vf-wght) * var(--h4-vf-wght-multiplier-s));
+  --text-ital: 0;
+  --h4-font-size: calc(var(--h4-font-size-min) * 1em);
+
+  font-size: var(--h4-font-size);
+}
+
+h5 {
+  --text-wght: calc(var(--p-vf-wght) * var(--h5-vf-wght-multiplier-s));
+  --text-ital: 0;
+  --h5-font-size: calc(var(--h5-font-size-min) * 1em);
+
+  font-size: var(--h5-font-size);
+}
+
+h6 {
+  --text-wght: calc(var(--p-vf-wght) * var(--h6-vf-wght-multiplier-s));
+  --text-ital: 0;
+  --h6-font-size: calc(var(--h6-font-size-min) * 1em);
+
+  font-size: var(--h6-font-size);
+}
+
+blockquote {
+  --text-ital: -6;
+  line-height: var(--bq-line-height-min);
+}
+
+blockquote p {
+  --text-wght: calc(var(--p-vf-wght) * 0.9);
+  --text-ital: -6;
+
+  font-size: calc(var(--bq-font-size-min) * 1em);
+  line-height: var(--bq-line-height-min);
+}
+
+blockquote cite {
+  font-size: calc(var(--bq-font-size-min) * 0.8em);
+  line-height: var(--bq-line-height-min);
+}
+
+/* Media Queries */
+@media screen and (min-width: 28.75em) {
+  p,
+  li,
+  input,
+  textarea,
+  select,
+  pre {
+    line-height: calc(
+      (var(--p-line-height-min) * 1em) +
+        (var(--p-line-height-max) - var(--p-line-height-min)) *
+        (
+          (100vw - (var(--bp-small) * 1em)) /
+            (var(--bp-xlarge) - var(--bp-small))
+        )
+    );
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: calc(
+      (var(--line-height-min) * 1em) +
+        (var(--line-height-max) - var(--line-height-min)) *
+        (
+          (100vw - (var(--bp-small) * 1em)) /
+            (var(--bp-xlarge) - var(--bp-small))
+        )
+    );
+  }
+
+  h1 {
+    --h1-font-size: calc(
+      (var(--h1-font-size-min) * 1em) + var(--h1-font-size-step) *
+        (
+          (100vw - (var(--bp-small) * 1em)) /
+            (var(--bp-xlarge) - var(--bp-small))
+        )
+    );
+  }
+
+  h2 {
+    --h2-font-size: calc(
+      (var(--h2-font-size-min) * 1em) + var(--h2-font-size-step) *
+        (
+          (100vw - (var(--bp-small) * 1em)) /
+            (var(--bp-xlarge) - var(--bp-small))
+        )
+    );
+  }
+
+  h3 {
+    --h3-font-size: calc(
+      (var(--h3-font-size-min) * 1em) + var(--h3-font-size-step) *
+        (
+          (100vw - (var(--bp-small) * 1em)) /
+            (var(--bp-xlarge) - var(--bp-small))
+        )
+    );
+  }
+
+  h4 {
+    --h4-font-size: calc(
+      (var(--h4-font-size-min) * 1em) + var(--h4-font-size-step) *
+        (
+          (100vw - (var(--bp-small) * 1em)) /
+            (var(--bp-xlarge) - var(--bp-small))
+        )
+    );
+  }
+
+  blockquote p {
+    --text-wght: calc(var(--p-vf-wght) * 0.8);
+
+    line-height: calc(
+      (var(--bq-line-height-min) * 1em) +
+        (var(--bq-line-height-max) - var(--bq-line-height-min)) *
+        (
+          (100vw - (var(--bp-small) * 1em)) /
+            (var(--bp-large) - var(--bp-small))
+        )
+    );
+  }
+}
+
+@media screen and (min-width: 48em) {
+  h1 {
+    --text-wght: calc(var(--p-vf-wght) * var(--h1-vf-wght-multiplier-m));
+  }
+
+  h2 {
+    --text-wght: calc(var(--p-vf-wght) * var(--h2-vf-wght-multiplier-m));
+  }
+
+  h3 {
+    --text-wght: calc(var(--p-vf-wght) * var(--h3-vf-wght-multiplier-m));
+  }
+
+  h4 {
+    --text-wght: calc(var(--p-vf-wght) * var(--h4-vf-wght-multiplier-m));
+  }
+
+  h5 {
+    --text-wght: calc(var(--p-vf-wght) * var(--h5-vf-wght-multiplier-m));
+  }
+
+  h6 {
+    --text-wght: calc(var(--p-vf-wght) * var(--h6-vf-wght-multiplier-m));
+  }
+}
+
+@media (min-width: 64em) {
+  :root {
+    --line-height-min: var(--line-height-min-m);
+    --line-height-max: var(--line-height-max-m);
+  }
+
+  code {
+    --code-font-size: calc(
+      (var(--p-font-size-min) * 0.84em) +
+        (var(--p-font-size-max) - var(--p-font-size-min)) *
+        (
+          (100vw - (var(--bp-large) * 1em)) /
+            (var(--bp-xlarge) - var(--bp-large))
+        )
+    );
+  }
+
+  p,
+  li,
+  input,
+  textarea,
+  select,
+  pre {
+    font-size: calc(
+      (var(--p-font-size-min) * 1em) +
+        (var(--p-font-size-max) - var(--p-font-size-min)) *
+        (
+          (100vw - (var(--bp-large) * 1em)) /
+            (var(--bp-xlarge) - var(--bp-large))
+        )
+    );
+    line-height: var(--p-line-height-max);
+  }
+
+  p small,
+  small {
+    font-size: calc(
+      (var(--p-small-font-size-min) * 1rem) +
+        (var(--p-small-font-size-max) - var(--p-small-font-size-min)) *
+        (
+          (100vw - (var(--bp-large) * 1em)) /
+            (var(--bp-xlarge) - var(--bp-large))
+        )
+    );
+  }
+
+  h1 {
+    --text-wght: calc(var(--p-vf-wght) * var(--h1-vf-wght-multiplier-l));
+
+    line-height: var(--line-height-max);
+  }
+
+  blockquote p {
+    --text-wght: calc(var(--p-vf-wght) * 0.6);
+
+    font-size: calc(
+      (var(--bq-font-size-min) * 1em) + var(--bq-font-size-step) *
+        (
+          (100vw - (var(--bp-large) * 1em)) /
+            (var(--bp-xlarge) - var(--bp-large))
+        )
+    );
+    line-height: var(--bq-line-height-max);
+  }
+
+  blockquote cite {
+    font-size: calc(
+      (var(--bq-font-size-min) * 0.8em) + var(--bq-font-size-step) *
+        (
+          (100vw - (var(--bp-large) * 1em)) /
+            (var(--bp-xlarge) - var(--bp-large))
+        )
+    );
+  }
+}
+
+@media (min-width: 75em) {
+  :root {
+    --line-height-min: var(--line-height-min-l);
+    --line-height-max: var(--line-height-max-l);
+  }
+
+  code {
+    --code-font-size: calc(var(--p-font-size-max) * 0.84em);
+  }
+
+  p,
+  li,
+  input,
+  textarea,
+  select,
+  pre {
+    font-size: calc(var(--p-font-size-max) * 1em);
+  }
+
+  p small,
+  small {
+    font-size: calc(var(--p-small-font-size-max) * 1rem);
+  }
+
+  blockquote p {
+    font-size: calc(var(--bq-font-size-max) * 1em);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: var(--line-height-max);
+  }
+
+  h1 {
+    --h1-font-size: calc(var(--h1-font-size-max) * 1em);
+  }
+
+  h2 {
+    --text-wght: calc(var(--p-vf-wght) * var(--h2-vf-wght-multiplier-l));
+    --h2-font-size: calc(var(--h2-font-size-max) * 1em);
+  }
+
+  h3 {
+    --text-wght: calc(var(--p-vf-wght) * var(--h3-vf-wght-multiplier-l));
+    --h3-font-size: calc(var(--h3-font-size-max) * 1em);
+  }
+
+  h4 {
+    --text-wght: calc(var(--p-vf-wght) * var(--h4-vf-wght-multiplier-l));
+    --h4-font-size: calc(var(--h4-font-size-max) * 1em);
+  }
+
+  h5 {
+    --text-wght: calc(var(--p-vf-wght) * var(--h5-vf-wght-multiplier-l));
+    --h5-font-size: calc(var(--h5-font-size-max) * 1em);
+  }
+
+  h6 {
+    --text-wght: calc(var(--p-vf-wght) * var(--h6-vf-wght-multiplier-l));
+    --h6-font-size: calc(var(--h6-font-size-max) * 1em);
+  }
+}

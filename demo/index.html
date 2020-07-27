@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molten Type Demo</title>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        padding: 0 0 16px 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        transition: font-size 0.3s ease 0s;
+      }
+
+      select {
+        font-size: 12px;
+      }
+
+      #sidebar {
+        justify-content: center;
+        display: flex;
+        padding: 16px;
+      }
+
+      main {
+        border-top: 1px solid #dadada;
+        padding: 32px;
+      }
+
+      @media screen and (min-width: 640px) {
+        .content {
+          display: flex;
+        }
+
+        main {
+          border-top: 0;
+          border-left: 1px solid #dadada;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="content">
+      <div id="sidebar">
+        <label>
+          Scale:
+          <select name="type-scale" id="type-scale" onchange="handleTypeScaleChange()">
+            <option selected="true" value="index">1.000 — Base</option>
+            <option value="minor-second">1.067 — Minor Second</option>
+            <option value="major-second">1.125 — Major Second</option>
+            <option value="minor-third">1.200 — Minor Third</option>
+            <option value="major-third">1.250 — Major Third</option>
+            <option value="perfect-fourth">1.333 — Perfect Fourth</option>
+            <option value="augmented-fourth">1.414 — Augmented Fourth</option>
+            <option value="perfect-fifth">1.500 — Perfect Fifth</option>
+            <option value="golden-ratio">1.618 — Golden Ratio</option>
+          </select>
+        </label>
+      </div>
+
+      <main>
+        <h1>Where a man can live, he can also live well.</h1>
+        <h2>Where a man can live, he can also live well.</h2>
+        <h3>Where a man can live, he can also live well.</h3>
+        <h4>Where a man can live, he can also live well.</h4>
+        <h5>Where a man can live, he can also live well.</h5>
+        <h6>Where a man can live, he can also live well.</h6>
+
+        <p>Think of all the years passed by in which you said to yourself "I'll do it tomorrow," and how the gods have
+          again and
+          again granted you periods of grace of which you have not availed yourself. It is time to realize that you are
+          a member
+          of the Universe, that you are born of Nature itself, and to know that a limit has been set to your time. Use
+          every
+          moment wisely, to perceive your inner refulgence, or 'twill be gone and nevermore within your reach.</p>
+
+        <blockquote>
+          <p>If it is not right do not do it; if it is not true do not say it.</p>
+        </blockquote>
+      </main>
+    </div>
+
+    <script>
+      const styleSheetExists = (href) => {
+        for (let i = 0; i < document.styleSheets.length; i++) {
+          if (document.styleSheets[i].href == href) {
+            return true;
+          }
+        }
+
+        return false;
+      };
+
+      const loadStyle = (href) => {
+        if (!styleSheetExists(href)) {
+          const head = document.getElementsByTagName('head')[0];
+          const styleEl = head.getElementsByTagName('style')[0];
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.type = 'text/css';
+          link.href = href;
+          head.removeChild(styleEl);
+          head.appendChild(link);
+          head.appendChild(styleEl);
+        }
+      }
+      const select = document.getElementById('type-scale');
+      function handleTypeScaleChange() {
+        loadStyle(`./${select.value}.css`);
+      };
+    </script>
+
+  </body>
+
+</html>

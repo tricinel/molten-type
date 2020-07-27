@@ -1,0 +1,11 @@
+@import '../base.css';
+
+:root {
+  --type-scale: 1;
+}
+
+@media (min-width: 75em) {
+  :root {
+    --font-size-modifier: 0.3;
+  }
+}
