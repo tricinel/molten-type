@@ -5,19 +5,29 @@
   "author": "Bogdan Lazar <bogdan@bogdanlazar.com> (@tricinel)",
   "license": "MIT",
   "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm-run-all --parallel clean lint",
+    "lint": "stylelint src",
     "dev": "postcss src/scales/*.css --base src/scales --dir demo -w",
-    "prebuild": "rimraf ./dist",
-    "build": "postcss src/scales/*.css --base src/scales --dir dist --env=production --no-map"
+    "build": "postcss src/scales/*.css --base src/scales --dir dist --env=production --no-map",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist"
   ],
   "devDependencies": {
     "cssnano": "^4.1.10",
+    "npm-run-all": "^4.1.5",
     "postcss": "^7.0.32",
     "postcss-cli": "^7.1.1",
     "postcss-import": "^12.0.1",
-    "rimraf": "^3.0.2"
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "stylelint": "^13.6.1",
+    "stylelint-a11y": "^1.2.3",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-prettier": "^1.1.2"
   },
   "dependencies": {}
 }
